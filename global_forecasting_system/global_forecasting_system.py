@@ -149,9 +149,12 @@ def earliest_time_UTC(listing: pd.DataFrame = None) -> datetime:
     if len(listing) == 0:
         raise ValueError("zero-length GFS listing")
 
-    earliest_time = min(listing.forecast_time_UTC)
+    earliest_time = min(listing.forecast_time_UTC).to_pydatetime()
 
     return earliest_time
+
+def earliest_date_UTC(listing: pd.DataFrame = None) -> date:
+    return earliest_date_UTC(listing=listing).date()
 
 def GFS_before_after_addresses(time_UTC: datetime, listing: pd.DataFrame = None) -> pd.DataFrame:
     if not isinstance(time_UTC, datetime):
