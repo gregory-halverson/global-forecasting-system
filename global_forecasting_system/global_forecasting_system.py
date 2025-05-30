@@ -142,6 +142,17 @@ def get_GFS_listing(date_URL: str = None) -> pd.DataFrame:
     
     return address_df
 
+def earliest_time_UTC(listing: pd.DataFrame = None) -> datetime:
+    if listing is None:
+        listing = get_GFS_listing()
+
+    if len(listing) == 0:
+        raise ValueError("zero-length GFS listing")
+
+    earliest_time = min(listing.forecast_time_UTC)
+
+    return earliest_time
+
 def GFS_before_after_addresses(time_UTC: datetime, listing: pd.DataFrame = None) -> pd.DataFrame:
     if not isinstance(time_UTC, datetime):
         time_UTC = parser.parse(time_UTC)
