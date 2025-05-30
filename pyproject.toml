@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "global-forecasting-system"
-version = "1.1.0"
+version = "1.1.1"
 description = "Global Forecasting System (GFS) Search & Download Utility"
 readme = "README.md"
 authors = [
