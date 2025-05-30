@@ -154,7 +154,7 @@ def earliest_time_UTC(listing: pd.DataFrame = None) -> datetime:
     return earliest_time
 
 def earliest_date_UTC(listing: pd.DataFrame = None) -> date:
-    return earliest_date_UTC(listing=listing).date()
+    return earliest_time_UTC(listing=listing).date()
 
 def GFS_before_after_addresses(time_UTC: datetime, listing: pd.DataFrame = None) -> pd.DataFrame:
     if not isinstance(time_UTC, datetime):
