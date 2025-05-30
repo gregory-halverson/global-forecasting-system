@@ -23,6 +23,8 @@ import numpy as np
 import logging
 import colored_logging
 
+from .constants import *
+
 logger = logging.getLogger(__name__)
 
 GFS_SM_MESSAGE = 565
@@ -165,7 +167,7 @@ def GFS_before_after_addresses(time_UTC: datetime, listing: pd.DataFrame = None)
 
 def GFS_download(URL: str, filename: str = None, directory: str = None) -> str:
     if directory is None:
-        directory = "."
+        directory = DOWNLOAD_DIRECTORY
 
     date_UTC = datetime.strptime(posixpath.basename(URL).split("_")[2], "%Y%m%d").date()
     directory = expanduser(directory)
